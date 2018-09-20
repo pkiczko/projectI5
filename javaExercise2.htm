@@ -11,7 +11,7 @@ body {
   <script>
 
   /* 12. Functions */
-  console.log('12. Functions \n \n');
+  pCreate('12. Functions \n \n');
   function spaceCreate(n) {
   let space = document.createElement('div');
   space.style.height = n;
@@ -162,11 +162,47 @@ function randomHexaNumberGenerator() {
 }
 randomHexaNumberGenerator();
 
-//n. & o ID generator
-pCreate('n. & o ID generator:')
-function idGenerator() {
-  
+//n. & o. ID generator
+pCreate('n. & o. ID generator:')
+function userIdGenerator() {
+  let param1 = prompt('How many characters ID should have?', '5');
+  let param2 = prompt('How many IDs to generate?', '1');
+  //let totallyRandomID = '';
+
+  for (i=0; i<param2; i++) {
+      let totallyRandomID = '';
+      let randomID = Math.random().toString(36).substr(2, param1);
+      //console.log(randomID);
+      let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+      [...randomID].forEach(item => {if (letters.includes(item)) {
+        //console.log(item);
+        let z = Math.floor(Math.random()*2);
+        if (z === 0) {item = item.toUpperCase();
+      }
+
+      }
+      totallyRandomID+=item;
+
+    });
+    //console.log(totallyRandomID);
+      //.map(letter => {let z = Math.floor(Math.random()*2); if (z === 0) {letter.toUpperCase()}};);
+      divCreate(`${totallyRandomID}`);
+  };
 }
+userIdGenerator();
+
+//p. RGB color generator
+pCreate('p. RGB color generator:')
+function rgbColorGenerator() {
+  let colors = [];
+  for (i=0; i<3; i++) {
+    let randomColor =  Math.floor(Math.random()*256);
+    colors.push(randomColor);
+  }
+divCreate(`rgb(${colors})`);
+}
+rgbColorGenerator();
 
 spaceCreate('20px');
 
