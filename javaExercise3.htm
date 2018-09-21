@@ -6,6 +6,7 @@ body {
   background-color: black;
 }
 </style>
+<script src="lodash.js"></script>
 </head>
 <body>
   <script>
@@ -200,8 +201,28 @@ for (i=0; i<countries.length; i++){
     spanCreate(countries[i]);
   };
   pCreate('e. Most common starting letters for countries:');
-  countries
+  let countryResults = {};
+
+  countries.forEach(element => {
+    if (!countryResults[element[0]]) {countryResults[element[0]]=1}
+    else countryResults[element[0]]++;
+  }
+  );
+  console.log(_.keys(countryResults));
+  divCreate('Results:');
+  let biggest = 0;
+  let z = 0;
+  for (i=0; i<_.size(countryResults); i++){
+    spanCreate(_.keys(countryResults)[i] + ' : ' + _.values(countryResults)[i]);
+    if (_.values(countryResults)[i] > biggest) {biggest = _.values(countryResults)[i];
+      z = i;
+    }
+  };
+  pCreate('The most common letter is ' + _.keys(countryResults)[z] + ' : ' + _.values(countryResults)[z]);
+    _.forOwn(countryResults, function(value, key) {spanCreate(key + ' : ' + value);});
   pCreate('17. DOM \n \n');
+  
+
 
 
 spaceCreate('20px');
