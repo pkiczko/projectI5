@@ -1,0 +1,163 @@
+<html>
+<head>
+
+<style>
+body {
+  background-color: black;
+  color: white;
+}
+h1 {flex-basis: 100%;}
+header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+}
+.inputs {
+    text-align: center;
+    type: 'number';
+    flex-basis: 25%;
+    placeholder:'Insert an integer number...';
+    margin: 'auto';}
+    @media (max-width: 900px) {
+        .inputs {flex-basis: 50%;}
+
+    }
+@media (max-width: 600px) {
+    .inputs {flex-basis: 100%;}
+
+}
+
+</style>
+<script src="lodash.js"></script>
+</head>
+<body>
+  <script>
+
+  function divCreate(input) {
+              let div = document.createElement('div');
+              div.textContent = input;
+              div.style.backgroundColor="darkblue";
+              div.style.color = "white";
+              div.style.style = "tahoma";
+              div.style.fontSize = "x-large";
+              div.style.fontWeight = '800';
+              div.style.marginBottom = '5px';
+              div.style.padding = '5px';
+              document.body.appendChild(div);
+            }
+let header = document.createElement('header');
+  function menuCreate() {
+
+          let menu = document.createElement('div');
+          //div.textContent = input;
+          header.style.backgroundColor="green";
+          header.style.color = "white";
+          header.style.style = "tahoma";
+          header.style.fontSize = "medium";
+          header.style.textAlign = 'center';
+          header.style.marginBottom = '5px';
+          header.style.padding = '5px';
+          document.body.appendChild(header);
+          h1Create('HTML Table Generator');
+          spanCreate('Number of rows');
+          let inputTd = document.createElement('input');
+                      inputTd.id = 'rowField';
+                      inputTd.classList = 'inputs1';
+                      inputTd.defaultValue = 5;
+                      header.lastChild.appendChild(inputTd);
+          spanCreate('Number of columns');
+          let inputTr = document.createElement('input');
+                      inputTr.id = 'colField';
+                      inputTr.classList = 'inputs1';
+                      inputTr.defaultValue = 5;
+                      header.lastChild.appendChild(inputTr);
+          spanCreate('Table width');
+          let inputTw = document.createElement('input');
+                      inputTw.id = 'widthField';
+                      inputTw.classList = 'inputs1';
+                      inputTw.defaultValue = '100%';
+                      header.lastChild.appendChild(inputTw);
+          spanCreate('Border width');
+          let inputTb = document.createElement('input');
+                      inputTb.id = 'borderField';
+                      inputTb.classList = 'inputs1';
+                      inputTb.defaultValue = 1;
+                      header.lastChild.appendChild(inputTb);
+
+          spanCreate('Table background');
+          let colorT = document.createElement('input');
+                      colorT.id = 'tableColor';
+                      colorT.type='color';
+                      colorT.classList = 'inputs2';
+                      colorT.defaultValue = '#FFFFFF';
+                      header.lastChild.appendChild(colorT);
+
+          spanCreate('Head background');
+          let colorH = document.createElement('input');
+                      colorH.id = 'headColor';
+                      colorH.type='color';
+                      colorH.classList = 'inputs2';
+                      colorH.defaultValue = '#000000';
+                      header.lastChild.appendChild(colorH);
+
+          spanCreate('Border color');
+          let colorB = document.createElement('input');
+                      colorB.id = 'borderColor';
+                      colorB.type='color';
+                      colorB.classList = 'inputs2';
+                      colorB.defaultValue = 0;
+                      header.lastChild.appendChild(colorB);
+
+          spanCreate('Font color');
+          let colorF = document.createElement('input');
+                      colorF.id = 'fontColor';
+                      colorF.type='color';
+                      colorF.classList = 'inputs2';
+                      colorF.defaultValue = 0;
+                      header.lastChild.appendChild(colorF);
+          }
+  function pCreate(input) {
+              let p = document.createElement('p');
+              p.textContent = input;
+              p.style.backgroundColor="black";
+              p.style.color = "white";
+              p.style.style = "tahoma";
+              p.style.fontSize = "medium";
+              p.style.fontWeight = '700';
+              p.style.margin = '10px';
+              document.body.appendChild(p);
+            }
+  function spanCreate(input) {
+            let span = document.createElement('span');
+            span.innerHTML = input + '<br>';
+            //span.style.display = 'flexbox';
+            span.style.backgroundColor="green";
+            //span.style.border= "2px darkred solid";
+            span.classList= 'inputs';
+            span.style.color = "white";
+            span.style.style = "tahoma";
+            span.style.fontSize = "medium";
+            span.style.fontWeight = '700';
+            span.style.marginTop = '15px';
+            span.style.marginBottom = '15px';
+
+            span.style.padding = '0px';
+            header.appendChild(span);
+          }
+  function h1Create(input) {
+                      let h1 = document.createElement('h1');
+                      h1.innerHTML = input + '<br>';
+                      h1.style.color = "white";
+                      h1.style.style = "tahoma";
+                      h1.style.fontWeight = '700';
+                      h1.style.margin = '10px';
+                      header.appendChild(h1);
+                    }
+    menuCreate();
+
+</script>
+
+
+</body>
+</html>
